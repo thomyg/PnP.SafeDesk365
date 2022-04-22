@@ -1,5 +1,40 @@
 ﻿@page "/"
+@using SafeDesk365.DesignPoCWebApp.Data
+@using SafeDesk365.SDK.Models
+
+@inject SafeDesk365Service SafeDesk365Service;
 
 <PageTitle>Index</PageTitle>
 
-<SafeDeskRoot></SafeDeskRoot>
+<h1>Upcoming bookings</h1>
+<BookingsList Bookings="@upcomingBookings" ></BookingsList>
+
+<h1>All bookings</h1>
+<BookingsList Bookings="@allBookings" ></BookingsList>
+
+<h1>All Availabilities</h1>
+<DeskAvailabilityList DeskAvailabilities="@allDeskAvailabilities"></DeskAvailabilityList>
+@code {
+    List<Booking> upcomingBookings;
+    List<Booking> allBookings;
+
+    List<DeskAvailability> allDeskAvailabilities;
+    protected override async Task OnInitializedAsync()
+    {
+
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if(firstRender)
+        {
+            upcomingBookings = await SafeDesk365Service.GetUpcomingBookings("thomy@zxqg4.onmicrosoft.com");
+            allBookings = await SafeDesk365Service.GetBookings("thomy@zxqg4.onmicrosoft.com");
+            allDeskAvailabilities = await SafeDesk365Service.GetDeskAvailability("2022-04-28T00:00:00");
+            StateHasChanged();
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+}

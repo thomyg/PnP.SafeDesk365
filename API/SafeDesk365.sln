@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SafeDesk365.SDK", "SafeDesk
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SafeDesk365.Api", "SafeDesk365.Api\SafeDesk365.Api.csproj", "{B0DDDE8B-9090-455A-BE1E-9CD8D523B64F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafeDesk365.TestConsole", "SafeDesk365.TestConsole\SafeDesk365.TestConsole\SafeDesk365.TestConsole.csproj", "{B66368A8-6FDB-44DC-B437-8E098FF2CA10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SafeDesk365.TestConsole", "SafeDesk365.TestConsole\SafeDesk365.TestConsole\SafeDesk365.TestConsole.csproj", "{B66368A8-6FDB-44DC-B437-8E098FF2CA10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

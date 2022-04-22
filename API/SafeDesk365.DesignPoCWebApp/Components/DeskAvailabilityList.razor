@@ -1,27 +1,26 @@
-﻿
-<div class="container-fluid p-0" style="position: relative">
+﻿<div class="container-fluid p-0" style="position: relative">
     <div class="row no-gutters mx-n2">
         <div class="col-lg-8 p-2">
             <RadzenCard>
                 @*<h3>Issue List</h3>*@
                 <div class="row">
                     <div class="col">
-                        <RadzenButton Icon="add_circle_outline" class="btn" style="margin-bottom: 10px" Text="Add New Booking" Click="@InsertRow" Disabled=@(bookingToInsert != null) />
+                        <RadzenButton Icon="add_circle_outline" class="btn" style="margin-bottom: 10px" Text="Add New Booking" Click="@InsertRow" Disabled=@(DeskAvailabilityToInsert != null) />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <RadzenDataGrid @ref="bookingsGrid" AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" EditMode="DataGridEditMode.Single"
-                                        Data="@Bookings" TItem="Booking" RowUpdate="@OnUpdateRow" RowCreate="@OnCreateRow">
+                        <RadzenDataGrid @ref="DeskAvailabilitiesGrid" AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" EditMode="DataGridEditMode.Single"
+                                        Data="@DeskAvailabilities" TItem="DeskAvailability" RowUpdate="@OnUpdateRow" RowCreate="@OnCreateRow">
                             <Columns>
                                 @*<RadzenDataGridColumn TItem="Booking" Property="Code" Title="ID" Width="120px" />
                                     <RadzenDataGridColumn TItem="Booking" Property="User" Title="User" Width="280px" >
                                     </RadzenDataGridColumn>*@
-                                <RadzenDataGridColumn TItem="Booking" Property="DeskCode" Title="Desk" Width="280px">
+                                <RadzenDataGridColumn TItem="DeskAvailability" Property="DeskCode" Title="Desk" Width="280px">
                                 </RadzenDataGridColumn>
-                                <RadzenDataGridColumn TItem="Booking" Property="Location" Title="Location" Width="150px">
+                                <RadzenDataGridColumn TItem="DeskAvailability" Property="Location" Title="Location" Width="150px">
                                 </RadzenDataGridColumn>
-                                <RadzenDataGridColumn TItem="Booking" Property="Date" Title="Date" Width="100px">
+                                <RadzenDataGridColumn TItem="DeskAvailability" Property="Date" Title="Date" Width="100px">
                                     <Template Context="b">
                                         @String.Format("{0:d}", b.Date)
                                     </Template>
@@ -29,12 +28,15 @@
                                         <RadzenDatePicker @bind-Value="b.Date" Style="width:100%" />
                                     </EditTemplate>
                                 </RadzenDataGridColumn>
-                                <RadzenDataGridColumn TItem="Booking" Property="TimeSlot" Title="TimeSlot" Width="100px">
+                                <RadzenDataGridColumn TItem="DeskAvailability" Property="TimeSlot" Title="TimeSlot" Width="100px">
                                 </RadzenDataGridColumn>                                
-                                <RadzenDataGridColumn TItem="Booking" Title="Delete" Context="order" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="60px">
+                                <RadzenDataGridColumn TItem="DeskAvailability" Title="Delete" Context="order" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="60px">
                                     <Template Context="order">
-                                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Size="ButtonSize.Small" Class="m-1" Click="@(args => DeleteRow(order))" @onclick:stopPropagation="true">
-                                        </RadzenButton>
+                                        @if (order.Date >= DateTime.Today)
+                                        {
+                                            <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Size="ButtonSize.Small" Class="m-1" Click="@(args => DeleteRow(order))" @onclick:stopPropagation="true">
+                                            </RadzenButton>
+                                        }
                                     </Template>
                                     <EditTemplate Context="order">
                                         <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Size="ButtonSize.Small" Class="m-1" Click="@(args => DeleteRow(order))">

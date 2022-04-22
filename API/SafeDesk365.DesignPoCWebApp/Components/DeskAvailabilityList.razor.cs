@@ -1,19 +1,18 @@
-﻿using SafeDesk365.SDK.Models;
+﻿using Microsoft.AspNetCore.Components;
 using Radzen.Blazor;
-using Microsoft.AspNetCore.Components;
+using SafeDesk365.SDK.Models;
 
-namespace SafeDesk365.SDK
+namespace SafeDesk365.DesignPoCWebApp.Components
 {
-    public partial class SafeDeskRoot
+    public partial class DeskAvailabilityList
     {
-
         [Parameter, EditorRequired]
-        public IList<Booking> Bookings { get; set; }
+        public IList<DeskAvailability> DeskAvailabilities { get; set; }
 
-        RadzenDataGrid<Booking> bookingsGrid;
-        
-        Booking bookingToInsert;
-        
+        RadzenDataGrid<DeskAvailability> DeskAvailabilitiesGrid;
+        DeskAvailability DeskAvailabilityToInsert;
+
+
         protected override void OnInitialized()
         {
             base.OnInitialized();
@@ -21,18 +20,18 @@ namespace SafeDesk365.SDK
 
 
             // For demo purposes only
-           // var sortedBookings = Booking.FakeData.Generate(20).ToList().OrderBy(x => x.Date).ToList();
+            // var sortedBookings = Booking.FakeData.Generate(20).ToList().OrderBy(x => x.Date).ToList();
             //bookings = sortedBookings;
             // For production
             //orders = dbContext.Orders.Include("Customer").Include("Employee");
         }
 
-        async Task EditRow(Booking order)
+        async Task EditRow(DeskAvailability order)
         {
             //await bookingsGrid.EditRow(order);
         }
 
-        void OnUpdateRow(Booking order)
+        void OnUpdateRow(DeskAvailability order)
         {
             //if (order == bookingToInsert)
             //{
@@ -49,7 +48,7 @@ namespace SafeDesk365.SDK
             //dbContext.SaveChanges();
         }
 
-        async Task SaveRow(Booking order)
+        async Task SaveRow(DeskAvailability order)
         {
             //if (order == bookingToInsert)
             //{
@@ -59,7 +58,7 @@ namespace SafeDesk365.SDK
             //await bookingsGrid.UpdateRow(order);
         }
 
-        void CancelEdit(Booking order)
+        void CancelEdit(DeskAvailability order)
         {
             //if (order == bookingToInsert)
             //{
@@ -77,7 +76,7 @@ namespace SafeDesk365.SDK
             //}
         }
 
-        async Task DeleteRow(Booking order)
+        async Task DeleteRow(DeskAvailability order)
         {
             //if (order == bookingToInsert)
             //{
@@ -110,7 +109,7 @@ namespace SafeDesk365.SDK
             //await bookingsGrid.InsertRow(bookingToInsert);
         }
 
-        void OnCreateRow(Booking order)
+        void OnCreateRow(DeskAvailability order)
         {
             //dbContext.Add(order);
 

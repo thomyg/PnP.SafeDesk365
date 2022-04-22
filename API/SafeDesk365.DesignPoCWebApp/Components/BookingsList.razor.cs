@@ -2,9 +2,9 @@
 using Radzen.Blazor;
 using Microsoft.AspNetCore.Components;
 
-namespace SafeDesk365.SDK
+namespace SafeDesk365.DesignPoCWebApp.Components
 {
-    public partial class SafeDeskRoot
+    public partial class BookingsList
     {
 
         [Parameter, EditorRequired]

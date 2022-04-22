@@ -1,4 +1,5 @@
 ﻿
+
 <div class="container-fluid p-0" style="position: relative">
     <div class="row no-gutters mx-n2">
         <div class="col-lg-8 p-2">
@@ -33,8 +34,11 @@
                                 </RadzenDataGridColumn>                                
                                 <RadzenDataGridColumn TItem="Booking" Title="Delete" Context="order" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="60px">
                                     <Template Context="order">
-                                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Size="ButtonSize.Small" Class="m-1" Click="@(args => DeleteRow(order))" @onclick:stopPropagation="true">
-                                        </RadzenButton>
+                                        @if (order.Date >= DateTime.Today)
+                                        {
+                                            <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Size="ButtonSize.Small" Class="m-1" Click="@(args => DeleteRow(order))" @onclick:stopPropagation="true">
+                                            </RadzenButton>
+                                        }
                                     </Template>
                                     <EditTemplate Context="order">
                                         <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Size="ButtonSize.Small" Class="m-1" Click="@(args => DeleteRow(order))">
