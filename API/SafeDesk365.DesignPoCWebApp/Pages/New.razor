@@ -1,0 +1,60 @@
+﻿@page "/new"
+@using SafeDesk365.DesignPoCWebApp.Data
+@using SafeDesk365.SDK.Models
+
+@inject SafeDesk365Service SafeDesk365Service;
+
+<h1>All Availabilities</h1>
+<div class="row">
+    <div class="col">
+        <RadzenDropDown Data="@locations" @bind-Value="selectedLocation" ValueProperty="Name" AllowFiltering="true" AllowClear="true" TValue="string" TextProperty="Name" ></RadzenDropDown>
+    </div>
+    <div class="col">
+        <RadzenDatePicker @bind-Value=@selectedDate AllowClear="true" />
+    </div>
+    <div>
+        <RadzenButton Icon="add_circle_outline" class="btn" style="margin-bottom: 10px" Text="Filter" Click=@Filter />
+    </div>
+</div>
+<DeskAvailabilityList ListType="DisplayType.Details"></DeskAvailabilityList>
+
+@code {
+
+    List<DeskAvailability> allDeskAvailabilities;
+    List<Location> locations;
+    DateTime selectedDate = DateTime.Today;
+    String selectedLocation = "";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if(firstRender)
+        {
+            allDeskAvailabilities = await SafeDesk365Service.GetDeskAvailability();
+            locations = await SafeDesk365Service.GetLocations();
+            StateHasChanged();
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+    //async void OnSelectedDateChange(DateTime? value)
+    //{
+    //    DateTime d = Convert.ToDateTime(value);
+    //    allDeskAvailabilities = await SafeDesk365Service.GetDeskAvailability(d.ToString("yyyy-MM-ddTHH:mm:ss"));
+    //    StateHasChanged();
+    //}
+
+    async void OnSelectedLocationChange(object loc)
+    {
+        String location = (string)loc;
+        //allDeskAvailabilities = await SafeDesk365Service.GetDeskAvailability(d.ToString("yyyy-MM-ddTHH:mm:ss"));
+        StateHasChanged();
+    }
+
+    async void Filter()
+    {
+        string selectedDateStr = selectedDate == new DateTime(1, 1, 1) ? "" : selectedDate.ToString("yyyy-MM-ddTHH:mm:ss");
+        allDeskAvailabilities = await SafeDesk365Service.GetDeskAvailability(selectedDateStr, selectedLocation);
+        StateHasChanged();
+    }
+}

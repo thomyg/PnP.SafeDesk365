@@ -1,124 +1,71 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Radzen;
 using Radzen.Blazor;
 using SafeDesk365.SDK.Models;
 
 namespace SafeDesk365.DesignPoCWebApp.Components
 {
     public partial class DeskAvailabilityList
-    {
-        [Parameter, EditorRequired]
+    {        
         public IList<DeskAvailability> DeskAvailabilities { get; set; }
+
+        [Parameter, EditorRequired]
+        public DisplayType ListType { get; set; }
+
+        [Parameter]
+        public string UserEmail { get; set; } = "";
 
         RadzenDataGrid<DeskAvailability> DeskAvailabilitiesGrid;
         DeskAvailability DeskAvailabilityToInsert;
 
+        bool isLoading = true;
 
         protected override void OnInitialized()
         {
             base.OnInitialized();
 
-
-
-            // For demo purposes only
-            // var sortedBookings = Booking.FakeData.Generate(20).ToList().OrderBy(x => x.Date).ToList();
-            //bookings = sortedBookings;
-            // For production
-            //orders = dbContext.Orders.Include("Customer").Include("Employee");
         }
 
-        async Task EditRow(DeskAvailability order)
+        protected async override Task OnAfterRenderAsync(bool firstRender)
         {
-            //await bookingsGrid.EditRow(order);
+            if(firstRender)
+                await LoadData();
+
+            await base.OnAfterRenderAsync(firstRender);
         }
 
-        void OnUpdateRow(DeskAvailability order)
+        async Task LoadData()
         {
-            //if (order == bookingToInsert)
-            //{
-            //    bookingToInsert = null;
-            //}
-
-            //dbContext.Update(order);
-
-            //// For demo purposes only
-            //order.Customer = dbContext.Customers.Find(order.CustomerID);
-            //order.Employee = dbContext.Employees.Find(order.EmployeeID);
-
-            // For production
-            //dbContext.SaveChanges();
+            isLoading = true;
+            DeskAvailabilities = await SafeDesk365Service.GetDeskAvailability();
+            isLoading = false;
+            StateHasChanged();
         }
 
-        async Task SaveRow(DeskAvailability order)
+
+        async void OnCreateBooking(DeskAvailability da)
         {
-            //if (order == bookingToInsert)
-            //{
-            //    bookingToInsert = null;
-            //}
-
-            //await bookingsGrid.UpdateRow(order);
+            string id = da.Id.ToString();
+            var result = await SafeDesk365Service.CreateBooking(id, "thomy@zxqg4.onmicrosoft.com");
+            if (result > 0)
+            {
+                var message = new NotificationMessage()
+                {
+                    Severity = NotificationSeverity.Success,
+                    Summary = "Desk booked",
+                    Detail = "Booking Id is: " + Convert.ToString(result),
+                    Duration = 4000
+                };
+                NotificationService.Notify(message);
+            }
+                
+            LoadData();
         }
+    }
 
-        void CancelEdit(DeskAvailability order)
-        {
-            //if (order == bookingToInsert)
-            //{
-            //    bookingToInsert = null;
-            //}
-
-            //bookingsGrid.CancelEditRow(order);
-
-            //// For production
-            //var orderEntry = dbContext.Entry(order);
-            //if (orderEntry.State == EntityState.Modified)
-            //{
-            //    orderEntry.CurrentValues.SetValues(orderEntry.OriginalValues);
-            //    orderEntry.State = EntityState.Unchanged;
-            //}
-        }
-
-        async Task DeleteRow(DeskAvailability order)
-        {
-            //if (order == bookingToInsert)
-            //{
-            //    bookingToInsert = null;
-            //}
-
-            //if (orders.Contains(order))
-            //{
-            //    dbContext.Remove<Order>(order);
-
-            //    // For demo purposes only
-            //    orders.Remove(order);
-
-            //    // For production
-            //    //dbContext.SaveChanges();
-
-            //    await bookingsGrid.Reload();
-            //}
-            //else
-            //{
-            //    bookingsGrid.CancelEditRow(order);
-            //}
-        }
-
-
-
-        async Task InsertRow()
-        {
-            //bookingToInsert = new Booking();
-            //await bookingsGrid.InsertRow(bookingToInsert);
-        }
-
-        void OnCreateRow(DeskAvailability order)
-        {
-            //dbContext.Add(order);
-
-            //// For demo purposes only
-            //order.Customer = dbContext.Customers.Find(order.CustomerID);
-            //order.Employee = dbContext.Employees.Find(order.EmployeeID);
-
-            //// For production
-            ////dbContext.SaveChanges();
-        }
+    public enum DisplayType
+    {
+        Details,
+        Simple
     }
 }

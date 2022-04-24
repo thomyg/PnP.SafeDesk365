@@ -1,4 +1,6 @@
-﻿
+﻿@using SafeDesk365.DesignPoCWebApp.Data
+@inject DialogService DialogService
+@inject SafeDesk365Service SafeDesk365Service;
 
 <div class="container-fluid p-0" style="position: relative">
     <div class="row no-gutters mx-n2">
@@ -7,7 +9,7 @@
                 @*<h3>Issue List</h3>*@
                 <div class="row">
                     <div class="col">
-                        <RadzenButton Icon="add_circle_outline" class="btn" style="margin-bottom: 10px" Text="Add New Booking" Click="@InsertRow" Disabled=@(bookingToInsert != null) />
+                        <RadzenButton Icon="add_circle_outline" class="btn" style="margin-bottom: 10px" Text="Add New Booking" Click=@InsertRow />
                     </div>
                 </div>
                 <div class="row">
@@ -23,27 +25,23 @@
                                 <RadzenDataGridColumn TItem="Booking" Property="Location" Title="Location" Width="150px">
                                 </RadzenDataGridColumn>
                                 <RadzenDataGridColumn TItem="Booking" Property="Date" Title="Date" Width="100px">
-                                    <Template Context="b">
-                                        @String.Format("{0:d}", b.Date)
+                                    <Template Context="booking">
+                                        @String.Format("{0:d}", booking.Date)
                                     </Template>
-                                    <EditTemplate Context="b">
-                                        <RadzenDatePicker @bind-Value="b.Date" Style="width:100%" />
+                                    <EditTemplate Context="booking">
+                                        <RadzenDatePicker @bind-Value="booking.Date" Style="width:100%" />
                                     </EditTemplate>
                                 </RadzenDataGridColumn>
                                 <RadzenDataGridColumn TItem="Booking" Property="TimeSlot" Title="TimeSlot" Width="100px">
                                 </RadzenDataGridColumn>                                
                                 <RadzenDataGridColumn TItem="Booking" Title="Delete" Context="order" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="60px">
-                                    <Template Context="order">
-                                        @if (order.Date >= DateTime.Today)
+                                    <Template Context="booking">
+                                        @if (booking.Date >= DateTime.Today)
                                         {
-                                            <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Size="ButtonSize.Small" Class="m-1" Click="@(args => DeleteRow(order))" @onclick:stopPropagation="true">
+                                            <RadzenButton ButtonStyle="ButtonStyle.Primary" Icon="delete" Size="ButtonSize.Small" Class="m-1" Click="@(args => DeleteRow(booking))" @onclick:stopPropagation="true">
                                             </RadzenButton>
                                         }
-                                    </Template>
-                                    <EditTemplate Context="order">
-                                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Size="ButtonSize.Small" Class="m-1" Click="@(args => DeleteRow(order))">
-                                        </RadzenButton>
-                                    </EditTemplate>
+                                    </Template>                                   
                                 </RadzenDataGridColumn>
                             </Columns>
                         </RadzenDataGrid>
@@ -56,5 +54,7 @@
 </div>
 
 @code {
+
+    
 
 }

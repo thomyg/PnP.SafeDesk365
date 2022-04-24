@@ -1,6 +1,7 @@
 ﻿using SafeDesk365.SDK.Models;
 using Radzen.Blazor;
 using Microsoft.AspNetCore.Components;
+using Radzen;
 
 namespace SafeDesk365.DesignPoCWebApp.Components
 {
@@ -27,7 +28,18 @@ namespace SafeDesk365.DesignPoCWebApp.Components
             //orders = dbContext.Orders.Include("Customer").Include("Employee");
         }
 
-        async Task EditRow(Booking order)
+        async Task InsertRow()
+        {
+            //bookingToInsert = new Booking();
+            //await bookingsGrid.InsertRow(bookingToInsert);
+
+            var result = await DialogService.OpenAsync<DeskAvailabilityList>("Book a desk");
+
+            int x = 10;
+
+        }
+
+    async Task EditRow(Booking order)
         {
             //await bookingsGrid.EditRow(order);
         }
@@ -79,47 +91,17 @@ namespace SafeDesk365.DesignPoCWebApp.Components
 
         async Task DeleteRow(Booking order)
         {
-            //if (order == bookingToInsert)
-            //{
-            //    bookingToInsert = null;
-            //}
-
-            //if (orders.Contains(order))
-            //{
-            //    dbContext.Remove<Order>(order);
-
-            //    // For demo purposes only
-            //    orders.Remove(order);
-
-            //    // For production
-            //    //dbContext.SaveChanges();
-
-            //    await bookingsGrid.Reload();
-            //}
-            //else
-            //{
-            //    bookingsGrid.CancelEditRow(order);
-            //}
+            await SafeDesk365Service.DeleteBooking(order.Id.ToString());
+            StateHasChanged();
         }
 
 
 
-        async Task InsertRow()
-        {
-            //bookingToInsert = new Booking();
-            //await bookingsGrid.InsertRow(bookingToInsert);
-        }
+        
 
         void OnCreateRow(Booking order)
         {
-            //dbContext.Add(order);
-
-            //// For demo purposes only
-            //order.Customer = dbContext.Customers.Find(order.CustomerID);
-            //order.Employee = dbContext.Employees.Find(order.EmployeeID);
-
-            //// For production
-            ////dbContext.SaveChanges();
+            
         }
     }
 }

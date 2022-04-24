@@ -44,11 +44,34 @@ namespace SafeDesk365.DesignPoCWebApp.Data
         {
             var result = await apiClient.Api.DeskAvailabilities.Upcoming.GetAsync(q =>
             {
-                q.Location = location;
-                q.SelectedDate = date;
+                if(location != "")    
+                    q.Location = location;
+                if(date != "")
+                    q.SelectedDate = date;
             });
 
             return result.ToList();
+        }
+
+        public async Task<List<Location>> GetLocations()
+        {
+            var result = await apiClient.Api.Locations.GetAsync();
+            return result.ToList();
+        }
+
+        public async Task DeleteBooking(string id)
+        {            
+            await apiClient.Api.Bookings[id].DeleteAsync();
+        }
+
+        public async Task<int> CreateBooking(string id, string email)
+        {
+            var result = await apiClient.Api.Bookings.Availability[id].PostAsync(b =>
+            {
+                b.UserEmail=email;
+            });
+
+            return Convert.ToInt32(result);
         }
     }
 }

@@ -208,7 +208,7 @@ namespace SafeDesk365.Api.DeskAvailabilities
             result.Add(deskDescriptionColumn, desk.Description);
             result.Add(deskPictureColumn, desk.Picture);
             result.Add(facilitiesColumn, facilitiesValues);
-            result.Add(bookingDateColumn, day);
+            result.Add(bookingDateColumn, day.Date);
             result.Add(bookingSlotColumn, timeslot);
 
             return result;
@@ -347,7 +347,7 @@ namespace SafeDesk365.Api.DeskAvailabilities
             }
 
             
-            List<string> timeSlotList = (List<string>)item.Values[bookingSlotColumn];
+            List<string> timeSlotList = (List<string>)item.Values[bookingSlotColumn];            
 
             var deskAvailability = new DeskAvailability()
             {
