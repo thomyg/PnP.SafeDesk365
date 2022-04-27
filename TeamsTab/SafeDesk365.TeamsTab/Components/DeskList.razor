@@ -1,0 +1,43 @@
+﻿@inject SafeDesk365Service SafeDesk365Service;
+@inject NotificationService NotificationService;
+
+<div class="container-fluid p-0" style="position: relative">
+    <div class="row no-gutters mx-n2">
+        <div class="col-lg-11 p-2">
+            <RadzenCard>
+                <div class="row">
+                    <div class="col">
+                        @if (isLoading)
+                        {
+                            <Spinner></Spinner>
+                        }
+                        else
+                        {
+                            <RadzenDataGrid @ref="DeskGrid" AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" EditMode="DataGridEditMode.Single"
+                                        Data="@Desks" TItem="Desk">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="Desk" Property="Code" Title="Code" Width="100px">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Desk" Property="Description" Title="Description" Width="100px">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Desk" Property="Location" Title="Location" Width="100px" SortOrder="SortOrder.Ascending">                              
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Desk" Property="CoffeeMachineDistance" Title="Coffee" Width="100px">
+                                </RadzenDataGridColumn>  
+                                <RadzenDataGridColumn TItem="Desk" Property="Facilities" Title="Facilities" Width="150px">
+                                </RadzenDataGridColumn>                                  
+                                    <RadzenDataGridColumn TItem="Desk" Property="Picture" Title="Picture" Width="120px">
+                                        <Template Context="da">
+                                            <img style="width: 120px" src="@da.Picture"/>
+                                        </Template>
+                                    </RadzenDataGridColumn>
+                               
+                            </Columns>
+                        </RadzenDataGrid>
+                        }
+                    </div>
+                </div>
+            </RadzenCard>
+        </div>
+    </div>
+</div>

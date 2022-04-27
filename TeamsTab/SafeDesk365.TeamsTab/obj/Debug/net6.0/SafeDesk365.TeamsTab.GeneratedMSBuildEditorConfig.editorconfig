@@ -1,0 +1,124 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SafeDesk365.TeamsTab
+build_property.RootNamespace = SafeDesk365.TeamsTab
+build_property.ProjectDir = C:\Users\Thomy\source\repos\PnPMSTechDays\Teams App\PnP.SafeDesk365\TeamsTab\SafeDesk365.TeamsTab\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Thomy\source\repos\PnPMSTechDays\Teams App\PnP.SafeDesk365\TeamsTab\SafeDesk365.TeamsTab
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Components/BookingsList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xCb29raW5nc0xpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Components/DeskAvailabilityList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEZXNrQXZhaWxhYmlsaXR5TGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Components/DeskList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEZXNrTGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Components/OLD/CurrentUser.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xPTERcQ3VycmVudFVzZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Components/OLD/Deploy.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xPTERcRGVwbG95LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Components/OLD/EditCode.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xPTERcRWRpdENvZGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Components/OLD/Graph.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xPTERcR3JhcGgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Components/OLD/Loading.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xPTERcTG9hZGluZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Components/OLD/Publish.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xPTERcUHVibGlzaC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Components/Spinner.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTcGlubmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Pages/AdminView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5WaWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Pages/AllAvailabilities.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWxsQXZhaWxhYmlsaXRpZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Pages/AllDesks.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWxsRGVza3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Pages/Archive.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXJjaGl2ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Pages/MyBookings.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlCb29raW5ncy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Pages/NewBooking.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3Qm9va2luZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Pages/Privacy.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Pages/TabConfig.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFiQ29uZmlnLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Pages/TermsOfUse.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVybXNPZlVzZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Components/OLD/ProfileCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xPTERcUHJvZmlsZUNhcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ww6tvlsdng
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Components/OLD/Welcome.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xPTERcV2VsY29tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-b0c84bhyb3
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Pages/Tab.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFiLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-sj2wju08gv
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ai0xtj2xda
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thomy/source/repos/PnPMSTechDays/Teams App/PnP.SafeDesk365/TeamsTab/SafeDesk365.TeamsTab/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

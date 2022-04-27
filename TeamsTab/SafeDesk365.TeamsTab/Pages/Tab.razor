@@ -1,0 +1,58 @@
+﻿@page "/"
+@page "/tab"
+@using Microsoft.Graph
+@using SafeDesk365.TeamsTab.Components;
+
+@inject TeamsFx teamsfx
+@inject TeamsUserCredential teamsUserCredential
+@inject MicrosoftTeams MicrosoftTeams
+
+<h1>My upcoming bookings</h1>
+<BookingsList listType="BookingListType.Upcoming" UserEmail="thomy@zxqg4.onmicrosoft.com" ></BookingsList>
+
+
+@code {
+
+    string userName;
+    string errorMessage;
+    bool isInTeams;
+    bool isLoading = true; 
+
+    public User Profile { get; set; }
+    public string UserPhotoUri { get; set; }
+
+    private readonly string _scope = "User.Read";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+
+        if(firstRender)
+        {
+            isInTeams = await MicrosoftTeams.IsInTeams();
+
+            if (isInTeams)
+            { 
+                var user = await teamsUserCredential.GetUserInfoAsync();
+                userName = user.DisplayName;
+                var x = user.ObjectId;
+                var y = 10;
+            }
+            else
+            {
+                errorMessage = "Not running in Microsoft Teams.";
+            }
+
+            isLoading = false;
+            StateHasChanged();            
+        }
+    }
+
+    private GraphServiceClient GetGraphServiceClient()
+    {
+        var msGraphAuthProvider = new MsGraphAuthProvider(teamsUserCredential, _scope);
+        var client = new GraphServiceClient(msGraphAuthProvider);
+        return client;
+    }
+}
+

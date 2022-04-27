@@ -1,0 +1,63 @@
+﻿
+@inject DialogService DialogService
+@inject SafeDesk365Service SafeDesk365Service;
+
+<div class="container-fluid p-0" style="position: relative">
+    <div class="row no-gutters mx-n2">
+        <div class="col-lg-8 p-2">
+            <RadzenCard>
+                @if(isLoading)
+                {
+                    <Spinner></Spinner>
+                }
+                else
+                {
+                <div class="row">
+                    <div class="col">
+                        <RadzenButton Icon="add_circle_outline" class="btn" style="margin-bottom: 10px" Text="Add New Booking" Click=@InsertRow />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <RadzenDataGrid @ref="bookingsGrid" AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" EditMode="DataGridEditMode.Single"
+                                        Data="@bookings" TItem="Booking">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="Booking" Property="DeskCode" Title="Desk" Width="280px">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Booking" Property="Location" Title="Location" Width="150px">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Booking" Property="Date" Title="Date" Width="100px">
+                                    <Template Context="booking">
+                                        @String.Format("{0:d}", booking.Date)
+                                    </Template>
+                                    <EditTemplate Context="booking">
+                                        <RadzenDatePicker @bind-Value="booking.Date" Style="width:100%" />
+                                    </EditTemplate>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Booking" Property="TimeSlot" Title="TimeSlot" Width="100px">
+                                </RadzenDataGridColumn>                                
+                                <RadzenDataGridColumn TItem="Booking" Title="Delete" Context="order" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="60px">
+                                    <Template Context="booking">
+                                        @if (booking.Date >= DateTime.Today)
+                                        {
+                                            <RadzenButton ButtonStyle="ButtonStyle.Primary" Icon="delete" Size="ButtonSize.Small" Class="m-1" Click="@(args => DeleteRow(booking))" @onclick:stopPropagation="true">
+                                            </RadzenButton>
+                                        }
+                                    </Template>                                   
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGrid>
+                    </div>
+                </div>
+                }
+            </RadzenCard>
+        </div>
+    </div>
+
+</div>
+
+@code {
+
+    
+
+}

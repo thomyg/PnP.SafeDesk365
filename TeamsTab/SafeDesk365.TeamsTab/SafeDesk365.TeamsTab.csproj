@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <UserSecretsId>3b434ce2-339b-442a-8780-73555174239a</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Pages\Tab.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Pages\Tab.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\site.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectCapability Include="TeamsFx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.6.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Graph" Version="4.10.0" />
+    <PackageReference Include="Microsoft.Kiota.Authentication.Azure" Version="1.0.0-preview.2" />
+    <PackageReference Include="Microsoft.Kiota.Http.HttpClientLibrary" Version="1.0.0-preview.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Microsoft.Fast.Components.FluentUI" Version="1.0.0" />  
+    <PackageReference Include="Microsoft.TeamsFx" Version="0.3.0-rc" />  
+    <PackageReference Include="Radzen.Blazor" Version="3.18.4" />  
+    <PackageReference Include="SafeDesk365.SDK" Version="0.0.3-alpha" />
+  </ItemGroup>
+
+</Project>

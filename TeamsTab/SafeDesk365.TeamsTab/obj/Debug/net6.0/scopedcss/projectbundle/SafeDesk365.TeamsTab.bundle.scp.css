@@ -1,0 +1,160 @@
+/* _content/SafeDesk365.TeamsTab/Components/OLD/ProfileCard.razor.rz.scp.css */
+.profile[b-ww6tvlsdng] {
+    display: flex;
+    align-items: center;
+}
+
+    .profile .avatar[b-ww6tvlsdng] {        
+        flex: 1 0 auto;
+    }
+
+    .profile .avatar img[b-ww6tvlsdng] {
+        margin: 15px;
+        height: 64px;
+        width: 64px;
+        border-radius: 32px;
+    }
+
+    .profile .info[b-ww6tvlsdng] {
+        margin: 0 2em;
+        flex: 4 0 auto;
+    }
+
+        .profile .info > h3[b-ww6tvlsdng] {
+            margin: 0;
+        }
+
+        .profile .info > p[b-ww6tvlsdng] {
+            margin: 0;
+        }
+/* _content/SafeDesk365.TeamsTab/Components/OLD/Welcome.razor.rz.scp.css */
+.narrow[b-b0c84bhyb3] {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.page-padding[b-b0c84bhyb3] {
+    padding: 4rem;
+}
+
+.welcome.page > .narrow > img[b-b0c84bhyb3] {
+    margin: 0 auto;
+    display: block;
+    width: 200px;
+}
+
+.welcome.page > .narrow > .menu[b-b0c84bhyb3] {
+    width: 80%;
+    justify-content: space-between;
+    margin: 4rem auto;
+    border-bottom: none;
+}
+
+    .welcome.page > .narrow > .menu > .menu-item[b-b0c84bhyb3] {
+        background-color: inherit;
+        margin: auto;
+        font-size: 14px;
+        min-height: 32px;
+        border-bottom-color: rgb(98, 100, 167);
+    }
+
+.center[b-b0c84bhyb3] {
+    text-align: center;
+}
+
+.sections > *[b-b0c84bhyb3] {
+    margin: 4rem auto;
+}
+
+.error[b-b0c84bhyb3] {
+    color: red;
+}
+/* _content/SafeDesk365.TeamsTab/Pages/Tab.razor.rz.scp.css */
+.narrow[b-sj2wju08gv] {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.page-padding[b-sj2wju08gv] {
+	padding: 4rem;
+}
+
+.welcome.page > .narrow > img[b-sj2wju08gv] {
+	margin: 0 auto;
+	display: block;
+	width: 200px;
+}
+
+.welcome.page > .narrow > ul[b-sj2wju08gv] {
+	width: 75%;
+	justify-content: space-between;
+	margin: 4rem auto;
+}
+
+	.welcome.page > .narrow > ul > li[b-sj2wju08gv] {
+		background-color: inherit;
+		margin: auto;
+	}
+
+		.welcome.page > .narrow > ul > li > a[b-sj2wju08gv] {
+			font-size: 16px;
+			height: 32px;
+			border-bottom-color: rgb(98, 100, 167);
+		}
+
+.center[b-sj2wju08gv] {
+	text-align: center;
+}
+
+pre[b-sj2wju08gv] {
+	overflow-x: scroll;
+}
+
+pre[b-sj2wju08gv],
+div.error[b-sj2wju08gv] {
+	background-color: #e5e5e5;
+	padding: 1rem;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+	margin: 1rem 0;
+}
+
+code[b-sj2wju08gv] {
+	background-color: #e5e5e5;
+	display: inline-block;
+	padding: 0px 6px;
+	border-radius: 3px;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.error[b-sj2wju08gv] {
+	color: red;
+}
+
+.profile[b-sj2wju08gv] {
+	display: flex;
+	margin: 1em 0;
+	background-color: white;
+	width: fit-content;
+	box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+}
+
+	.profile > .avatar[b-sj2wju08gv] {
+		margin: 2em 1em;
+		height: 72px;
+		width: 72px;
+	}
+
+	.profile > .info[b-sj2wju08gv] {
+		margin: 2em 2em 0 0;
+	}
+
+		.profile > .info > h3[b-sj2wju08gv] {
+			margin: 0;
+		}
+
+		.profile > .info > p[b-sj2wju08gv] {
+			margin: 0;
+		}
+/* _content/SafeDesk365.TeamsTab/Shared/MainLayout.razor.rz.scp.css */

@@ -1,0 +1,23 @@
+{
+    "appName": "SafeDesk365.TeamsTab",
+    "projectId": "c4059ff5-c969-406c-863e-1f805b598b50",
+    "solutionSettings": {
+        "name": "fx-solution-azure",
+        "version": "1.0.0",
+        "hostType": "Azure",
+        "azureResources": [],
+        "capabilities": [
+            "Tab"
+        ],
+        "activeResourcePlugins": [
+            "fx-resource-frontend-hosting",
+            "fx-resource-identity",
+            "fx-resource-aad-app-for-teams",
+            "fx-resource-local-debug",
+            "fx-resource-appstudio"
+        ]
+    },
+    "version": "2.0.0",
+    "isFromSample": false,
+    "programmingLanguage": "csharp"
+}

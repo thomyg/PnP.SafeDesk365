@@ -1,0 +1,41 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:2544",
+      "sslPort": 44302
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "https://teams.microsoft.com/l/app/1bc2b867-2092-46c0-9703-c49ef7be23cf?installAppPackage=true&webjoin=true&appTenantId=a358c12a-fbfe-4272-a925-5c200c969a0b&login_hint=thomy@zxqg4.onmicrosoft.com",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "hotReloadProfile": "aspnetcore"
+    },
+    "SafeDesk365.TeamsTab": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "https://teams.microsoft.com/l/app/1bc2b867-2092-46c0-9703-c49ef7be23cf?installAppPackage=true&webjoin=true&appTenantId=a358c12a-fbfe-4272-a925-5c200c969a0b&login_hint=thomy@zxqg4.onmicrosoft.com",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:44302;http://localhost:2544",
+      "dotnetRunMessages": "true",
+      "hotReloadProfile": "aspnetcore"
+    },
+    "Tab direct": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "https://teams.microsoft.com/_#/apps/972f6c65-2f05-40df-9180-7a3831e64af4/sections/index?intent=2&category=16&autoNavigationOnDone=true&skipInstalledSuccess=false&filterByPersonal=false&storeLaunchFromChat=false",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "hotReloadProfile": "aspnetcore"
+    }
+  }
+}

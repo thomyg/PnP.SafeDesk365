@@ -1,0 +1,28 @@
+{
+    "solution": {
+        "resourceNameSuffix": "be4dd5",
+        "resourceGroupName": "SafeDesk365.TeamsTab-dev-rg",
+        "tenantId": "a358c12a-fbfe-4272-a925-5c200c969a0b",
+        "subscriptionId": "f4d0c499-eb70-4d6b-9883-677498057f04",
+        "subscriptionName": "Subscription1",
+        "location": "Central US",
+        "teamsAppTenantId": "a358c12a-fbfe-4272-a925-5c200c969a0b",
+        "provisionSucceeded": false
+    },
+    "fx-resource-appstudio": {
+        "teamsAppId": "0e45d47b-8971-4747-afb9-8264146c83c6"
+    },
+    "fx-resource-frontend-hosting": {
+        "projectFilePath": "C:\\Users\\Thomy\\source\\repos\\PnPMSTechDays\\Teams App\\PnP.SafeDesk365\\TeamsTab\\SafeDesk365.TeamsTab\\SafeDesk365.TeamsTab.csproj"
+    },
+    "fx-resource-identity": {},
+    "fx-resource-aad-app-for-teams": {
+        "clientId": "c232e67f-b1d1-4f94-a17c-c64be9846691",
+        "clientSecret": "{{fx-resource-aad-app-for-teams.clientSecret}}",
+        "objectId": "96aefd2a-fc4d-47f0-9cef-96dac350f903",
+        "oauth2PermissionScopeId": "bbe99b1b-a61d-4a19-8075-a10be478acc6",
+        "tenantId": "a358c12a-fbfe-4272-a925-5c200c969a0b",
+        "oauthHost": "https://login.microsoftonline.com",
+        "oauthAuthority": "https://login.microsoftonline.com/a358c12a-fbfe-4272-a925-5c200c969a0b"
+    }
+}
