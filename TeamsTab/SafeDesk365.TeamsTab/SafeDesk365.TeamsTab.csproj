@@ -29,7 +29,7 @@
     <PackageReference Include="Microsoft.Kiota.Http.HttpClientLibrary" Version="1.0.0-preview.6" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Microsoft.Fast.Components.FluentUI" Version="1.0.0" />  
-    <PackageReference Include="Microsoft.TeamsFx" Version="0.3.0-rc" />  
+    <PackageReference Include="Microsoft.TeamsFx" Version="0.4.1-rc" />  
     <PackageReference Include="Radzen.Blazor" Version="3.18.4" />  
     <PackageReference Include="SafeDesk365.SDK" Version="0.0.3-alpha" />
   </ItemGroup>

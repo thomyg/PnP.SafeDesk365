@@ -14,10 +14,10 @@ namespace SafeDesk365.TeamsTab.Components
     {
 
         [Parameter, EditorRequired]
-        public BookingListType listType { get; set; }
+        public BookingListType ListType { get; set; }
 
         [Parameter, EditorRequired]
-        public string UserEmail { get; set; }
+        public BookingListFilter FilterType { get; set; }
         
         public IList<Booking> bookings { get; set; }
         RadzenDataGrid<Booking> bookingsGrid;        
@@ -32,8 +32,11 @@ namespace SafeDesk365.TeamsTab.Components
 
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
-            if(firstRender)
+            if (firstRender)
+            {
                 await LoadData();
+                SafeDesk365Service.OnBookingAdded += DataChanged;
+            }
            
             await base.OnAfterRenderAsync(firstRender);
         }
@@ -41,12 +44,13 @@ namespace SafeDesk365.TeamsTab.Components
         async Task LoadData()
         {
             isLoading = true;
+            string currentUserEmail = await SafeDesk365Service.GetCurrentUserEmail();
 
-            if (listType == BookingListType.All)
-                bookings = await SafeDesk365Service.GetBookings(UserEmail);
+            if (ListType == BookingListType.All)
+                bookings = await SafeDesk365Service.GetBookings(currentUserEmail);
             
-            if(listType == BookingListType.Upcoming)
-                bookings = await SafeDesk365Service.GetUpcomingBookings(UserEmail);
+            if(ListType == BookingListType.Upcoming)
+                bookings = await SafeDesk365Service.GetUpcomingBookings(currentUserEmail);
 
             isLoading = false;
             StateHasChanged();
@@ -69,11 +73,23 @@ namespace SafeDesk365.TeamsTab.Components
             StateHasChanged();
         }
 
+        private async void DataChanged()
+        {
+            await LoadData();
+            _ = InvokeAsync(() => StateHasChanged());
+        }
+
     }
 
     public enum BookingListType
     {
         All,
         Upcoming
+    }
+
+    public enum BookingListFilter
+    {
+        All,
+        CurrentUser
     }
 }

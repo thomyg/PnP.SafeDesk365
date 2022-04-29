@@ -1,60 +1,73 @@
 ﻿@inject SafeDesk365Service SafeDesk365Service;
-@inject NotificationService NotificationService; 
+@inject NotificationService NotificationService;
 
 <div class="container-fluid p-0" style="position: relative">
     <div class="row no-gutters mx-n2">
         <div class="col-lg-11 p-2">
             <RadzenCard>
+
+                <div class="row">
+                    <div class="col-lg-2 p-2">
+                        <RadzenDropDown Data="@locations" @bind-Value="selectedLocation" ValueProperty="Name" AllowFiltering="true" AllowClear="true" TValue="string" TextProperty="Name"></RadzenDropDown>
+                    </div>
+                    <div class="col-lg-3 p-2">
+                        <RadzenDatePicker @bind-Value=@selectedDate AllowClear="true" />
+                    </div>
+                    <div class="col-lg-2 p-2">
+                        <RadzenButton Icon="add_circle_outline" class="btn" style="margin-bottom: 10px" Text="Filter" Click=@Filter />
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col">
-                        @if(isLoading)
+                        @if (isLoading)
                         {
                             <Spinner></Spinner>
                         }
                         else
                         {
-                        <RadzenDataGrid @ref="DeskAvailabilitiesGrid" AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" EditMode="DataGridEditMode.Single"
+                            <RadzenDataGrid @ref="DeskAvailabilitiesGrid" AllowFiltering="true" AllowPaging="true" PageSize="10" AllowSorting="true" EditMode="DataGridEditMode.Single"
                                         Data="@DeskAvailabilities" TItem="DeskAvailability">
-                            <Columns>
-                                <RadzenDataGridColumn TItem="DeskAvailability" Property="Code" Title="Desk" Width="100px">
-                                </RadzenDataGridColumn>
-                                <RadzenDataGridColumn TItem="DeskAvailability" Property="Location" Title="Location" Width="100px">
-                                </RadzenDataGridColumn>
-                                <RadzenDataGridColumn TItem="DeskAvailability" Property="Date" Title="Date" Width="100px" SortOrder="SortOrder.Ascending" Filterable="false">
-                                    <Template Context="da">
-                                        @String.Format("{0:d}", da.Date)
-                                    </Template>                                   
-                                </RadzenDataGridColumn>
-                                <RadzenDataGridColumn TItem="DeskAvailability" Property="TimeSlot" Title="TimeSlot" Width="100px">
-                                </RadzenDataGridColumn>  
-                                <RadzenDataGridColumn TItem="DeskAvailability" Property="Facilities" Title="Facilities" Width="150px">
-                                </RadzenDataGridColumn> 
-                                @if (ListType == DisplayType.Details)
-                                {
-                                    <RadzenDataGridColumn TItem="DeskAvailability" Property="CoffeeMachineDistance" Title="Coffee Distance"  Width="100px">
-                                    </RadzenDataGridColumn> 
-                                    <RadzenDataGridColumn TItem="DeskAvailability" Property="Description" Title="Description" Width="200px">
-                                    <Template Context="da">
-                                            <p>@da.Description</p>
-                                        </Template>
-                                    </RadzenDataGridColumn> 
-                                    <RadzenDataGridColumn TItem="DeskAvailability" Property="Picture" Title="Picture" Width="100px">
+                                <Columns>
+                                    <RadzenDataGridColumn TItem="DeskAvailability" Property="Code" Title="Desk" Width="100px">
+                                    </RadzenDataGridColumn>
+                                    <RadzenDataGridColumn TItem="DeskAvailability" Property="Location" Title="Location" Width="100px">
+                                    </RadzenDataGridColumn>
+                                    <RadzenDataGridColumn TItem="DeskAvailability" Property="Date" Title="Date" Width="100px" SortOrder="SortOrder.Ascending" Filterable="false">
                                         <Template Context="da">
-                                            <img style="width: 60px" src="@da.Picture"/>
+                                            @String.Format("{0:d}", da.Date)
                                         </Template>
                                     </RadzenDataGridColumn>
-                                }
-                                <RadzenDataGridColumn TItem="DeskAvailability" Title="Book" Context="order" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="60px">
-                                    <Template Context="da">
-                                        @if (da.Date >= DateTime.Today)
-                                        {
-                                            <RadzenButton ButtonStyle="ButtonStyle.Primary" Icon="more_time" Size="ButtonSize.Small" Class="m-1" Click="@(args => OnCreateBooking(da))" @onclick:stopPropagation="true">
-                                            </RadzenButton>
-                                        }
-                                    </Template>
-                                </RadzenDataGridColumn>
-                            </Columns>
-                        </RadzenDataGrid>
+                                    <RadzenDataGridColumn TItem="DeskAvailability" Property="TimeSlot" Title="TimeSlot" Width="100px">
+                                    </RadzenDataGridColumn>
+                                    <RadzenDataGridColumn TItem="DeskAvailability" Property="Facilities" Title="Facilities" Width="150px">
+                                    </RadzenDataGridColumn>
+                                    @if (ListType == DisplayType.Details)
+                                    {
+                                        <RadzenDataGridColumn TItem="DeskAvailability" Property="CoffeeMachineDistance" Title="Coffee Distance" Width="100px">
+                                        </RadzenDataGridColumn>
+                                        <RadzenDataGridColumn TItem="DeskAvailability" Property="Description" Title="Description" Width="200px">
+                                            <Template Context="da">
+                                                <p>@da.Description</p>
+                                            </Template>
+                                        </RadzenDataGridColumn>
+                                        <RadzenDataGridColumn TItem="DeskAvailability" Property="Picture" Title="Picture" Width="100px">
+                                            <Template Context="da">
+                                                <img style="width: 60px" src="@da.Picture" />
+                                            </Template>
+                                        </RadzenDataGridColumn>
+                                    }
+                                    <RadzenDataGridColumn TItem="DeskAvailability" Title="Book" Context="order" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="60px">
+                                        <Template Context="da">
+                                            @if (da.Date >= DateTime.Today)
+                                            {
+                                                <RadzenButton ButtonStyle="ButtonStyle.Primary" Icon="more_time" Size="ButtonSize.Small" Class="m-1" Click="@(args => OnCreateBooking(da))" @onclick:stopPropagation="true">
+                                                </RadzenButton>
+                                            }
+                                        </Template>
+                                    </RadzenDataGridColumn>
+                                </Columns>
+                            </RadzenDataGrid>
                         }
                     </div>
                 </div>

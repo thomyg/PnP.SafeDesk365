@@ -20,6 +20,10 @@ namespace SafeDesk365.TeamsTab.Components
 
         RadzenDataGrid<DeskAvailability> DeskAvailabilitiesGrid;
         DeskAvailability DeskAvailabilityToInsert;
+        
+        List<Location> locations;
+        DateTime selectedDate = DateTime.Today;
+        String selectedLocation = "";
 
         bool isLoading = true;
 
@@ -31,12 +35,24 @@ namespace SafeDesk365.TeamsTab.Components
 
         protected async override Task OnAfterRenderAsync(bool firstRender)
         {
-            if(firstRender)
+            if (firstRender)
+            {
                 await LoadData();
+                locations = await SafeDesk365Service.GetLocations();
+                StateHasChanged();
+            }
 
             await base.OnAfterRenderAsync(firstRender);
         }
 
+        async void Filter()
+        {
+            isLoading = true;
+            string selectedDateStr = selectedDate == new DateTime(1, 1, 1) ? "" : selectedDate.ToString("yyyy-MM-ddTHH:mm:ss");
+            DeskAvailabilities = await SafeDesk365Service.GetDeskAvailability(selectedDateStr, selectedLocation);
+            isLoading = false;
+            StateHasChanged();
+        }
         async Task LoadData()
         {
             isLoading = true;
@@ -62,7 +78,8 @@ namespace SafeDesk365.TeamsTab.Components
                 NotificationService.Notify(message);
             }
 
-            LoadData();
+            await LoadData();
+            StateHasChanged();
         }
     }
 
